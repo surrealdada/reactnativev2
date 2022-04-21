@@ -4,8 +4,91 @@ import { Card, Icon } from 'react-native-elements';
 import { CAMPSITES } from "../shared/campsites";
 import { COMMENTS } from '../shared/comments';
 
-function RenderCampsite({ campsite }) {
-  function RenderCampsite(props) {
+const DirectoryNavigator = createStackNavigator(
+  {
+      Directory: { 
+          screen: Directory,
+          navigationOptions: ({navigation}) => ({
+              headerLeft: <Icon
+                  name='list'
+                  type='font-awesome'
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+              />
+          })
+      },
+  }
+)
+  const HomeNavigator = createStackNavigator(
+    {
+        Home: { screen: Home }
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#5637DD'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon
+                name='home'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
+
+const AboutNavigator = createStackNavigator(
+    {
+        About: { screen: About }
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#5637DD'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon
+                name='info-circle'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
+
+const ContactNavigator = createStackNavigator(
+    {
+        Contact: { screen: Contact }
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#5637DD'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon
+                name='address-card'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
+
+function RenderCampsite(props) {
 
     const {campsite} = props;
 
