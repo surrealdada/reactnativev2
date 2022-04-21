@@ -141,4 +141,3 @@ export const addPartners = partners => ({
     type: ActionTypes.ADD_PARTNERS,
     payload: partners
 });
-Save all the changes and con
