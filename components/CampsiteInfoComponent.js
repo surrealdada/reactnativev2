@@ -6,6 +6,8 @@ import { COMMENTS } from '../shared/comments';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import { postFavorite } from '../redux/ActionCreators';
+import * as Animatable from 'react-native-animatable';
+
 
 const mapStateToProps = state => {
     return {
@@ -26,10 +28,21 @@ const mapDispatchToProps = {
 function RenderCampsite(props) {
 
     const {campsite} = props;
+
     if (campsite) {
         return (
-            <View>
-            <Card
+            <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
+                <Card
+                    . . .
+                </Card>
+            </Animatable.View>
+. . .
+    return (
+        <Animatable.View animation='fadeInUp' duration={2000} delay={1000}>
+            <Card title='Comments'>
+                . . .
+            </Card>
+        </Animatable.View>
                 featuredTitle={campsite.name}
                 image={{uri: baseUrl + campsite.image}}>
                 <Text style={{margin: 10}}>
